@@ -1,0 +1,16 @@
+<div class="container">
+  <form #f="ngForm" (ngSubmit)="login(f)">
+    <div class="form-group">
+      <label for="email">Email address</label>
+      <input minlength="3" type="email" ngModel class="form-control" name="email" placeholder="Enter email" required>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input minlength="5" type="password" ngModel class="form-control" name="password" placeholder="Password" required>
+    </div>
+    <div *ngIf="loginFailed" class="div alert alert-danger">
+      Login Failed
+    </div>
+    <button [disabled]="!f.valid" type="submit" class="btn btn-primary">Login</button>
+  </form>
+</div>

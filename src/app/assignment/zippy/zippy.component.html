@@ -1,0 +1,14 @@
+<div class="zippy" (click)="onClick()">
+  <div class="zippy-heading" [class.selected]="isActive">
+    <div class="d-flex justify-content-between">
+      <h4>{{title}}</h4>
+      <span class="fa align-self-center" [ngClass]="{
+                    'fa-chevron-up': isActive,
+                    'fa-chevron-down': !isActive
+                  }"></span>
+    </div>
+  </div>
+  <div *ngIf="isActive" class="zippy-body">
+    <ng-content></ng-content>
+  </div>
+</div>

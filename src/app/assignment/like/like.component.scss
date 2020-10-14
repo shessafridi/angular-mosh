@@ -1,0 +1,18 @@
+.fa {
+  color: #eee;
+  font-size: 24px;
+  cursor: pointer;
+  transition: color .1s;
+}
+
+span {
+  vertical-align: middle;
+}
+
+::selection {
+  background-color: transparent;
+}
+
+.highlighted {
+  color: deeppink;
+}

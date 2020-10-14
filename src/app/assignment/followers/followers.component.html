@@ -1,0 +1,19 @@
+<div class="container mt-4">
+  <h2>My Followers</h2>
+
+  <ul class="list-group my-4">
+    <li *ngIf="followers.length === 0" class="list-group-item">
+      <b-spinner></b-spinner>
+    </li>
+    <li *ngFor="let f of followers" class="my-2 followers list-group-item">
+      <img [src]="f.avatar_url" alt="">
+      <div class="">
+        <a [routerLink]="['/followers', f.id, f.login]">
+          <h5>{{f.login}}</h5>
+        </a>
+
+        <a [href]="f.html_url">{{f.html_url}}</a>
+      </div>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,22 @@
+<div class="container">
+  <form #f="ngForm" (ngSubmit)="addPost(f)">
+    <div class="form-group mt-4">
+      <label for="post-title">Post Title</label>
+      <input class="form-control" id="post-title" name="title" ngModel #title="ngModel" />
+    </div>
+    <button type="submit" class="btn btn-info">Add Post</button>
+  </form>
+  <ul class="list-group my-4">
+    <li *ngIf="posts.length === 0" class="list-group-item">
+      <b-spinner></b-spinner>
+    </li>
+    <li *ngFor="let post of posts" class="my-2 list-group-item">
+      <h4>{{post.title}}</h4>
+      <article class="my-3">
+        {{post.body}}
+      </article>
+      <button class="btn btn-info mr-2" (click)="updatePost(post)">Update Post</button>
+      <button class="btn btn-outline-danger" (click)="deletePost(post)">Delete Post</button>
+    </li>
+  </ul>
+</div>

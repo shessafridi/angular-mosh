@@ -1,0 +1,28 @@
+.zippy-heading {
+  padding: 20px;
+  background-color: #f5f5f5;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  cursor: pointer;
+  user-select: none;
+
+  ::selection {
+    background-color: transparent;
+  }
+}
+
+.selected {
+  background-color: #eee;
+}
+
+.zippy-body {
+  padding: 20px;
+  background-color: #fafafa;
+  border-radius: 5px;
+  user-select: none;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.zippy {
+  margin: 40px;
+}
