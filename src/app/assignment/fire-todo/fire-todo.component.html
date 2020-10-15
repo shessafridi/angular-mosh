@@ -1,0 +1,16 @@
+<div class="container mt-4">
+    <h2>Firestore</h2>
+    <form #f="ngForm" (ngSubmit)="add(f)">
+        <div class="form-group">
+            <label for="body">Todo</label>
+            <input minlength="3" class="form-control" ngModel name="body" required>
+          </div>
+        <button [disabled]="f.invalid" type="submit" class="btn btn-outline-primary mt-2">Add</button>
+    </form>
+    <ul class="list-group mt-4">
+        <li *ngFor="let todo of todos$ | async" class="list-group-item">
+            <h5>{{todo.body}}</h5>
+            <button (click)="delete(todo)" class="btn btn-outline-danger my-2">Delete</button>
+        </li>
+    </ul>
+</div>

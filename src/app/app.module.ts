@@ -21,6 +21,12 @@ import { SpinnerComponent } from './common/spinner/spinner.component';
 import { LoginComponent } from './assignment/login/login.component';
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './services/auth.guard';
+import { environment } from 'src/environments/environment';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { FireTodoComponent } from './assignment/fire-todo/fire-todo.component';
 
 @NgModule({
   declarations: [
@@ -36,8 +42,15 @@ import { AuthGuard } from './services/auth.guard';
     ArchiveComponent,
     SpinnerComponent,
     LoginComponent,
+    FireTodoComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
+  imports: [
+    BrowserModule, AppRoutingModule, HttpClientModule, FormsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
+    AngularFireAuthModule,
+    AngularFireStorageModule,
+  ],
   providers: [
     PostsService,
     FollowersService,

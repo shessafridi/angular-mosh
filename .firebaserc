@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "mosh-shess-angular": {
+      "hosting": {
+        "angular-mosh": [
+          "mosh-shess-angular"
+        ]
+      }
+    }
+  }
+}

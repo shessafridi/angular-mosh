@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ArchiveComponent } from './assignment/archive/archive.component';
+import { FireTodoComponent } from './assignment/fire-todo/fire-todo.component';
 import { FollowersComponent } from './assignment/followers/followers.component';
 import { LoginComponent } from './assignment/login/login.component';
 import { PostsComponent } from './assignment/posts/posts.component';
@@ -12,8 +13,12 @@ import { AuthGuard } from './services/auth.guard';
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent,
+    component: FireTodoComponent,
     pathMatch: 'full',
+  },
+  {
+    path: 'fire',
+    component: FireTodoComponent
   },
   {
     path: 'followers',
