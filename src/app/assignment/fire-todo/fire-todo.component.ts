@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { slideFaded } from 'src/app/animations';
+import { fadeDown, slideFaded } from 'src/app/animations';
 import { FireService } from 'src/app/services/fire.service';
 import { Todo } from '../../../models/Todo';
 
@@ -9,7 +9,7 @@ import { Todo } from '../../../models/Todo';
   selector: 'app-fire-todo',
   templateUrl: './fire-todo.component.html',
   styleUrls: ['./fire-todo.component.scss'],
-  animations: [slideFaded],
+  animations: [slideFaded, fadeDown],
 })
 export class FireTodoComponent implements OnInit {
   todos$: Observable<Todo[]>;
