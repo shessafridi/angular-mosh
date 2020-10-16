@@ -1,7 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
-@import '~bootstrap/scss/bootstrap.scss';
-@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&display=swap');
+@import "~bootstrap/scss/bootstrap.scss";
+@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&display=swap");
 
 body {
-  font-family: 'Barlow', sans-serif;
+  font-family: "Barlow", sans-serif;
+}
+
+.overflow-x-hidden {
+  overflow-x: hidden;
+}
+
+.hw-accelerate {
+  transform: translateZ(0), rotateZ(360deg);
+  backface-visibility: hidden;
+  perspective: 1000;
 }

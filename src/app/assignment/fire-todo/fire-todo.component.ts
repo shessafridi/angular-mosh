@@ -1,45 +1,33 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  AngularFirestore,
-  DocumentChangeAction,
-} from '@angular/fire/firestore';
 import { FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/internal/operators/map';
+import { slideFaded } from 'src/app/animations';
+import { FireService } from 'src/app/services/fire.service';
 import { Todo } from '../../../models/Todo';
 
 @Component({
   selector: 'app-fire-todo',
   templateUrl: './fire-todo.component.html',
   styleUrls: ['./fire-todo.component.scss'],
+  animations: [slideFaded],
 })
 export class FireTodoComponent implements OnInit {
   todos$: Observable<Todo[]>;
-  constructor(private db: AngularFirestore) {}
+  constructor(private db: FireService) {}
+
+  trackById(index: number, todo: Todo): string {
+    return todo.id;
+  }
 
   add(form: FormGroup) {
-    this.db.collection('todos').add({
-      body: form.value.body,
-      time: new Date(),
-    });
+    this.db.addTodo(form.value.body);
     form.reset();
   }
   delete(todo) {
-    this.db.doc('todos/' + todo.id).delete();
+    this.db.deleteTodo(todo);
   }
 
   ngOnInit(): void {
-    this.todos$ = this.db
-      .collection('todos', (todos) => todos.orderBy('time', 'desc'))
-      .snapshotChanges()
-      .pipe(
-        map((todos) => {
-          return todos.map((todo) => {
-            const data = todo.payload.doc.data() as Todo;
-            const id = todo.payload.doc.id;
-            return { id, ...data };
-          });
-        })
-      );
+    this.todos$ = this.db.getTodos();
   }
 }
