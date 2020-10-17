@@ -9,22 +9,22 @@
       Add
     </button>
   </form>
-  <ul class="list-group overflow-x-hidden mt-4">
-    <ng-container *ngIf="todos$ | async; else loading">
-      <li @slideFaded *ngFor="let todo of todos$ | async; trackBy: trackById" class="list-group-item">
-        <h5>{{ todo.body }}</h5>
-        <button (click)="delete(todo)" class="btn btn-outline-danger my-2">
-          Delete
-        </button>
-      </li>
-      <li *ngIf="(todos$ | async)?.length === 0" class="list-group-item">
-        No todos found
-      </li>
-    </ng-container>
-    <ng-template #loading>
+  <ul @fireAnimations *ngIf="todos$ | async as todos; else loading" class="list-group overflow-x-hidden mt-4">
+    <li @todoAnimation *ngFor="let todo of todos; trackBy: trackById" class="list-group-item">
+      <h5>{{ todo.body }}</h5>
+      <button (click)="delete(todo)" class="btn btn-outline-danger my-2">
+        Delete
+      </button>
+    </li>
+    <li *ngIf="(todos$ | async)?.length === 0" class="list-group-item">
+      No todos found
+    </li>
+  </ul>
+  <ng-template #loading>
+    <ul class="list-group mt-4">
       <li class="list-group-item">
         <b-spinner></b-spinner>
       </li>
-    </ng-template>
-  </ul>
+    </ul>
+  </ng-template>
 </div>

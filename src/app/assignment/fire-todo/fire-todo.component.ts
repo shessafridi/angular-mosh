@@ -1,19 +1,20 @@
+
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { fadeDown, slideFaded } from 'src/app/animations';
 import { FireService } from 'src/app/services/fire.service';
 import { Todo } from '../../../models/Todo';
+import { fireTodoAnimations } from './fire-todo.component.animations';
 
 @Component({
   selector: 'app-fire-todo',
   templateUrl: './fire-todo.component.html',
   styleUrls: ['./fire-todo.component.scss'],
-  animations: [slideFaded, fadeDown],
+  animations: fireTodoAnimations,
 })
 export class FireTodoComponent implements OnInit {
   todos$: Observable<Todo[]>;
-  constructor(private db: FireService) {}
+  constructor(private db: FireService) { }
 
   trackById(index: number, todo: Todo): string {
     return todo.id;
