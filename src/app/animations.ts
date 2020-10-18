@@ -2,26 +2,25 @@ import {
   animate,
   animation,
   keyframes,
-  state,
   style,
   transition,
   trigger,
   useAnimation,
 } from '@angular/animations';
 
-export const fadeDown = trigger('fadeDown', [
-  state('void', style({ opacity: 0, transform: 'translateY(-100%)' })),
-  transition(':enter, :leave', [animate('400ms ease-in-out')]),
-]);
-
 export const bounceOutLeftAnimation = animation(
   animate(
-    '0.6s ease-in-out',
+    '0.5s ease-in-out',
     keyframes([
       style({
         offset: 0.2,
         opacity: 1,
-        transform: 'translateX(60px)',
+        transform: 'translateX(50px)',
+      }),
+      style({
+        offset: 0.4,
+        opacity: 0,
+        transform: 'translateX(-40%)',
       }),
       style({
         offset: 1,
@@ -31,7 +30,6 @@ export const bounceOutLeftAnimation = animation(
     ])
   )
 );
-
 
 export const slideInRight = animation(
   [
@@ -46,16 +44,8 @@ export const slideInRight = animation(
   }
 );
 
-export const slideFaded = trigger('slideFaded', [
-  // state('void', style({ opacity: 0, transform: 'translateX(60px)' })),
-
-  transition(':enter', useAnimation(slideInRight)),
-  transition(':leave', useAnimation(bounceOutLeftAnimation)),
-]);
-
-
-export const slideInAndBouceOut = name => trigger(name, [
-  transition(':enter', useAnimation(slideInRight)),
-  transition(':leave', useAnimation(bounceOutLeftAnimation)),
-]
-) 
+export const slideInAndBouceOut = (name) =>
+  trigger(name, [
+    transition(':enter', useAnimation(slideInRight)),
+    transition(':leave', useAnimation(bounceOutLeftAnimation)),
+  ]);
