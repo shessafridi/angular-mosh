@@ -11,7 +11,7 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$angular-mosh-primary: mat-palette($mat-orange);
+$angular-mosh-primary: mat-palette($mat-deep-orange, A100);
 $angular-mosh-accent: mat-palette($mat-blue-grey, 200);
 
 // The warn palette is optional (defaults to red).
@@ -29,6 +29,20 @@ $angular-mosh-theme: mat-light-theme(
   )
 );
 
+$custom-typography: mat-typography-config(
+  $headline: mat-typography-level(32px, 48px, 700),
+  $body-2: mat-typography-level(16px, 24px, 500),
+  $body-1: mat-typography-level(16px, 20px, 400),
+  $subheading-2: mat-typography-level(20px, 28px, 400),
+  $subheading-1: mat-typography-level(18px, 24px, 400),
+);
+
+@include angular-material-typography($custom-typography);
+
+a {
+  text-decoration: none;
+}
+
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
@@ -44,5 +58,6 @@ $angular-mosh-theme: mat-light-theme(
 @import "~bootstrap/scss/navbar";
 @import "~bootstrap/scss/list-group";
 @import "~bootstrap/scss/forms";
+@import "~bootstrap/scss/reboot";
 
 @import "~bootstrap/scss/bootstrap-grid.scss";

@@ -14,7 +14,7 @@ export const fireTodoAnimations = [
       ':enter',
       query(
         '@todoAnimation',
-        [style({ opacity: 0 }), stagger(100, animateChild())],
+        [style({ opacity: 0 }), stagger(200, animateChild())],
         { optional: true }
       )
     ),

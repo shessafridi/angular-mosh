@@ -10,7 +10,7 @@ import {
 
 export const bounceOutLeftAnimation = animation(
   animate(
-    '0.5s ease-in-out',
+    '0.7s ease-in-out',
     keyframes([
       style({
         offset: 0.2,

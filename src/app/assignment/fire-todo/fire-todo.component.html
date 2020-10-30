@@ -5,14 +5,14 @@
       <label for="body">Todo</label>
       <input minlength="3" class="form-control" ngModel name="body" required />
     </div>
-    <button [disabled]="f.invalid" type="submit" class="btn btn-outline-primary mt-2">
+    <button [disabled]="f.invalid" type="submit" mat-raised-button color="primary" class="mt-2">
       Add
     </button>
   </form>
   <ul @fireAnimations *ngIf="todos$ | async as todos; else loading" class="list-group overflow-x-hidden mt-4">
     <li @todoAnimation *ngFor="let todo of todos; trackBy: trackById" class="list-group-item">
-      <h5>{{ todo.body }}</h5>
-      <button (click)="delete(todo)" class="btn btn-outline-danger my-2">
+      <h4>{{ todo.body }}</h4>
+      <button mat-stroked-button color="warn" (click)="delete(todo)" class="my-2">
         Delete
       </button>
     </li>
