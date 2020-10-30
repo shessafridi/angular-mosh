@@ -12,6 +12,7 @@
   },
   "private": true,
   "dependencies": {
+    "@angular-redux/store": "^10.0.0",
     "@angular/animations": "~10.1.2",
     "@angular/cdk": "^10.2.5",
     "@angular/cli": "~10.1.2",
