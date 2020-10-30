@@ -13,12 +13,12 @@ import { AuthGuard } from './services/auth.guard';
 const routes: Routes = [
   {
     path: '',
-    component: FireTodoComponent,
+    component: HomeComponent,
     pathMatch: 'full',
   },
   {
     path: 'fire',
-    component: FireTodoComponent
+    component: FireTodoComponent,
   },
   {
     path: 'followers',

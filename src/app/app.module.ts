@@ -28,7 +28,9 @@ import { AuthGuard } from './services/auth.guard';
 import { AppErrorHandler } from './common/app-error-handler';
 import { PostsService } from './services/posts.service';
 import { environment } from 'src/environments/environment';
+import { TestService } from './services/test.service';
 import { FireService } from './services/fire.service';
+import { MatComponentsModule } from './mat-components.module';
 
 @NgModule({
   declarations: [
@@ -56,6 +58,7 @@ import { FireService } from './services/fire.service';
     AngularFireAuthModule,
     AngularFireStorageModule,
     BrowserAnimationsModule,
+    MatComponentsModule,
   ],
   providers: [
     PostsService,
@@ -63,6 +66,7 @@ import { FireService } from './services/fire.service';
     AuthService,
     FireService,
     AuthGuard,
+    TestService,
     { provide: ErrorHandler, useClass: AppErrorHandler },
   ],
   bootstrap: [AppComponent],

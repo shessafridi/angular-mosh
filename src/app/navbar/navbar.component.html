@@ -15,6 +15,9 @@
           <a class="nav-link" [queryParams]="{ page: 1, order: 'newest' }" [routerLink]="['/followers']">Followers</a>
         </li>
         <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="['/fire']">Fire</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
           <a class="nav-link" [routerLink]="['/posts']">Posts</a>
         </li>
         <li *ngIf="!auth.isLoggedIn()" class="nav-item" routerLinkActive="active">

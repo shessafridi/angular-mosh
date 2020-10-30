@@ -2,9 +2,9 @@
   <form #f="ngForm" (ngSubmit)="addPost(f)">
     <div class="form-group mt-4">
       <label for="post-title">Post Title</label>
-      <input class="form-control" id="post-title" name="title" ngModel #title="ngModel" />
+      <input required class="form-control" id="post-title" name="title" ngModel #title="ngModel" />
     </div>
-    <button type="submit" class="btn btn-info">Add Post</button>
+    <button type="submit" [disabled]="f.invalid" color="primary" mat-raised-button>Add Post</button>
   </form>
   <ul class="list-group my-4">
     <li *ngIf="posts.length === 0" class="list-group-item">
@@ -15,8 +15,8 @@
       <article class="my-3">
         {{post.body}}
       </article>
-      <button class="btn btn-info mr-2" (click)="updatePost(post)">Update Post</button>
-      <button class="btn btn-outline-danger" (click)="deletePost(post)">Delete Post</button>
+      <button color="primary" class="mr-2" mat-raised-button (click)="updatePost(post)">Update Post</button>
+      <button color="warn" mat-button (click)="deletePost(post)">Delete Post</button>
     </li>
   </ul>
 </div>

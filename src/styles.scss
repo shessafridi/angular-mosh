@@ -1,9 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
-@import "~bootstrap/scss/bootstrap.scss";
 @import url("https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&display=swap");
 
+html,
 body {
-  font-family: "Barlow", sans-serif;
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Barlow, "Helvetica Neue", sans-serif;
 }
 
 .overflow-x-hidden {
@@ -14,4 +18,9 @@ body {
   transform: translateZ(0), rotateZ(360deg);
   backface-visibility: hidden;
   perspective: 1000;
+}
+
+button {
+  outline: 0;
+  outline-color: transparent;
 }
